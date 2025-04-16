@@ -1,0 +1,14 @@
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-6">
+            <app-prodform></app-prodform>
+        </div>
+        <div class="col-6">
+            <app-prodcard [prodObj]="prod" *ngFor="let prod of productArr"></app-prodcard>
+        </div>
+    </div>
+</div>
+
+
+
+

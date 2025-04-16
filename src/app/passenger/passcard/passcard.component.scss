@@ -1,0 +1,23 @@
+.passcard{
+     .form-control:disabled, .form-control[readonly]{
+        background-color: transparent;
+        opacity: 1;
+        border: 0;
+        font-weight: bold;
+        padding: 0;
+     }
+
+     .form-group{
+         margin-bottom: 1rem;
+         position: relative;
+     }
+
+     .checkinstatus{
+         position:absolute;
+         width: 15px;
+         height: 15px;
+         border-radius: 50%;
+         left: -18px;
+         top:12px
+        }
+}

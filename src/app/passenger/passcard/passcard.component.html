@@ -1,0 +1,23 @@
+<div class="card mb-4 mt-3 passcard">
+  <div class="card-body">
+      <div class="form-group">
+        <span [ngClass]="{
+             'bg-success': passObj.checkInDate,
+             'bg-danger': !passObj.checkInDate
+        }" class="checkinstatus"></span>
+        <input #fullname [disabled]="!isineditmode"  [value]="passObj.fullname" type="text" class="form-control">
+      </div>
+
+      <p>
+        Check In Date : {{passObj.checkInDate ? (passObj.checkInDate | date) : "Not Checked In Yet"}} 
+      </p>
+
+      <p>
+         Children :{{passObj.children?.length ?? 0 }}
+      </p>
+     
+       <button (click)="isineditmode = !isineditmode" *ngIf="!isineditmode" mat-raised-button color="primary" class="mr-3">Edit</button>
+       <button (click)="onupdatename(fullname.value)"  *ngIf="isineditmode" mat-raised-button color="primary" class="mr-3">Done</button>
+       <button (click)="onprodremove(passObj.id)" mat-raised-button color="warn">Remove</button>
+  </div>
+</div>
