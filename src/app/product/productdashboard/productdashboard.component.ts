@@ -8,14 +8,14 @@ import { ProductService } from 'src/app/services/product.service';
   styleUrls: ['./productdashboard.component.scss']
 })
 export class ProductdashboardComponent implements OnInit {
-  productArr!:Array<Iproduct>
+  prodArr !:Array<Iproduct>
   constructor(
-    private _prodservice : ProductService
+    private _prodservice:ProductService
   ) { }
 
   ngOnInit(): void {
-    this.productArr=this._prodservice.fetchallprod()
+  this.prodArr= this._prodservice.fetchallproduct()
+  
   }
-
 
 }

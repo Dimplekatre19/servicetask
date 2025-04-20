@@ -1,0 +1,20 @@
+<form #productForm="ngForm" (ngSubmit)="onProdadd()">
+<div class="card">
+  <div class="card-header text-center">
+     <h4>ADD PRODUCT</h4>
+  </div>
+  <div class="card-body">
+       <div class="form-group">
+        <label for="pname">Product Name*</label>
+         <input class="form-control" type="text" name="pname" ngModel #pname="ngModel" required>
+       </div>
+       <div class="form-group">
+        <label for="pname">Product Detail*</label>
+        <textarea class="form-control" name="pdetail" ngModel #pname="ngModel" required></textarea>
+      </div>
+  </div>
+  <div class="card-footer">
+    <button [disabled]="productForm.invalid" mat-raised-button color="primary">Add Product</button>
+  </div>
+</div>
+</form>

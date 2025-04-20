@@ -6,9 +6,8 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./passcount.component.scss']
 })
 export class PasscountComponent implements OnInit {
-  @Input()totalcount !: number;
-  @Input()checkIncount !:number;
- 
+  @Input()totalcount!:number
+  @Input()checkincount!:number
   constructor() { }
 
   ngOnInit(): void {

@@ -1,13 +1,14 @@
-<div class="card mt-2 mb-4">
+
+<div class="card mb-4">
   <div class="card-header">
      {{prodObj.pname}}
   </div>
   <div class="card-body">
-     {{prodObj.pdetail}} and the product status is <strong>{{prodObj.pstatus}}</strong>
+     {{prodObj.pdetail}} and the status is <strong>{{prodObj.pstatus}}</strong>
   </div>
   <div class="card-footer d-flex justify-content-between">
     <button (click)="onstatuschange(productstatus.Inprogress)" mat-raised-button color="primary">Inprogress</button>
-    <button (click)="onstatuschange(productstatus.Delivered)" mat-raised-button color="primary">Delivered</button>
     <button (click)="onstatuschange(productstatus.Dispatched)" mat-raised-button color="primary">Dispatched</button>
+    <button (click)="onstatuschange(productstatus.Delivered)" mat-raised-button color="primary">Delivered</button>
   </div>
 </div>

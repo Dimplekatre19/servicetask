@@ -9,21 +9,21 @@ import { PassengerService } from 'src/app/services/passenger.service';
 })
 export class PasscardComponent implements OnInit {
 @Input()passObj!:Ipassenger
+@Output()emitobj :EventEmitter<Ipassenger>= new EventEmitter<Ipassenger>()
 isineditmode:boolean=false
-@Output() emitpassinfo : EventEmitter<Ipassenger>= new EventEmitter<Ipassenger>()
   constructor(
-    private _passService: PassengerService
+    private _passService:PassengerService
   ) { }
 
   ngOnInit(): void {
   }
-  onupdatename(updatedname:string){
-      this.isineditmode=!this.isineditmode
-      let obj={...this.passObj,fullname:updatedname}
-      this._passService.updatename(obj)
+  onupdatename(updatedname:string ){
+     this.isineditmode=!this.isineditmode
+     let obj={...this.passObj,fullname:updatedname}
+     this._passService.updatepassenger(obj)
   }
   onprodremove(id:number){
-      this._passService.passremove(id)
+    this._passService.onpassremove(id)
+    this.emitobj.emit(this.passObj)
   }
-
 }

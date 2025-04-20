@@ -1,60 +1,18 @@
-
-<h2>Airline passenger</h2>
-<app-passcount 
-[totalcount]="passArr.length"
-[checkIncount]="checkIncount"
-></app-passcount>
-<ul class="list-group">
-    <li  *ngFor="let pass of passArr" class="list-group-item">
-        {{pass.fullname}}
-    </li>
-</ul>
-{{getcheckincount() | json}} 
-<app-passcard (emitpassinfo)="onremoveupdate($event)" [passObj]="pass" *ngFor="let pass of passArr"></app-passcard>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<h2>Airline Passenger</h2>
+ 
+     <app-passcount
+     [totalcount]="passArr.length"
+     [checkincount]="checkincount"></app-passcount>
+     <ul class="list-group">
+        <li
+        [ngClass]="{
+            'list-group-item-success':pass.checkInDate,
+            'list-group-item-danger' :!pass.checkInDate
+           }"
+        class="list-group-item " *ngFor="let pass of passArr">
+            {{pass.fullname}}
+        </li>
+     </ul>
+      {{getcheckincount() | json}}
+     <app-passcard (emitobj)="onremoveupdate($event)" [passObj]="pass" *ngFor="let pass of passArr"></app-passcard>
+ 

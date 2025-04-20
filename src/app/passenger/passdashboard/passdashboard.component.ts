@@ -9,23 +9,19 @@ import { PassengerService } from 'src/app/services/passenger.service';
 })
 export class PassdashboardComponent implements OnInit {
  passArr!:Array<Ipassenger>
- checkIncount! : number;
+ checkincount!:number;
   constructor(
-    private _passService : PassengerService
+    private _passservice:PassengerService
   ) { }
 
   ngOnInit(): void {
-    this.passArr=this._passService.fecthallpass()
+   this.passArr= this._passservice.fetchallpass()
   }
- 
   getcheckincount(){
-  this.checkIncount= this.passArr.filter(pass=>{
-         return pass.checkedIn
-      }).length
+    this.checkincount=this.passArr.filter(pass=>{return pass.checkedIn}).length
   }
- 
   onremoveupdate(eve:any){
-      this.getcheckincount()
+    this.getcheckincount()
   }
 
 }

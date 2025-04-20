@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Iproduct, Productstatus } from '../models/product';
-import { SnackbarService } from './snackbar.service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,40 +7,36 @@ import { SnackbarService } from './snackbar.service';
 export class ProductService {
   productarr:Array<Iproduct>=[
     {
-      pname:"samsung s25",
-      pdetail:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor soluta quae perspiciatis repudiandae laudantium aperiam sint deleniti at culpa nihil cupiditate ut magni voluptate, dignissimos doloribus, quas nemo esse molestias.",
+      pname:"samsung s24",
+      pdetail:"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequatur, deserunt itaque repellat dicta aut dolorem quae saepe placeat est nihil nesciunt temporibus ab porro laudantium nobis, dolorum dignissimos atque. Doloremque?",
       pid:"123",
       pstatus:Productstatus.Inprogress
     },
     {
-      pname:"samsung galaxy",
-      pdetail:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor soluta quae perspiciatis repudiandae laudantium aperiam sint deleniti at culpa nihil cupiditate ut magni voluptate, dignissimos doloribus, quas nemo esse molestias.",
+      pname:"samsung s25",
+      pdetail:"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequatur, deserunt itaque repellat dicta aut dolorem quae saepe placeat est nihil nesciunt temporibus ab porro laudantium nobis, dolorum dignissimos atque. Doloremque?",
       pid:"124",
       pstatus:Productstatus.Dispatched
     },
     {
-      pname:"iphone 16",
-      pdetail:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor soluta quae perspiciatis repudiandae laudantium aperiam sint deleniti at culpa nihil cupiditate ut magni voluptate, dignissimos doloribus, quas nemo esse molestias.",
+      pname:"iphone",
+      pdetail:"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequatur, deserunt itaque repellat dicta aut dolorem quae saepe placeat est nihil nesciunt temporibus ab porro laudantium nobis, dolorum dignissimos atque. Doloremque?",
       pid:"125",
-      pstatus:Productstatus.Inprogress
-    }
+      pstatus:Productstatus.Delivered
+    },
   ]
-  constructor(
-     private _snackbar : SnackbarService
-  ) { }
+  constructor() { }
 
-  fetchallprod():Array<Iproduct>{
-      return this.productarr
+  fetchallproduct(){
+    return this.productarr
   }
 
-  addproduct(prodobj:Iproduct){
-      this.productarr.push(prodobj)
-      this._snackbar.opensnackbar(`NEW PRODUCT IS ${prodobj.pname} ADDED  SUCCESSFULLYY`)
+  addnewprod(prodObj:Iproduct){
+      this.productarr.push(prodObj)
   }
 
-  updateproductstatus(upprodstat:Productstatus,id:string){
-    let getindex=  this.productarr.findIndex(prod=>prod.pid===id)  
-    this.productarr[getindex].pstatus=upprodstat
-    this._snackbar.opensnackbar(`PRODUCT STATUS IS UPDATED SUCCESSFULLYY AND THE NEW STATUS IS ${upprodstat}`)
+  productstatuschange(pstatus:Productstatus,id:string){
+   let getIndex=  this.productarr.findIndex(prod=>prod.pid===id)
+   this.productarr[getIndex].pstatus=pstatus
   }
 }
